@@ -101,6 +101,8 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
 
   @override
   Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
+
     return Container(
         decoration: BoxDecoration(
           borderRadius:
@@ -109,7 +111,7 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
         child: isSuccess
             ? InkWell(
                 onTap: () async {
-                  await showTodayDiet(context, user, widget.selectedDate);
+                  await showTodayDiet(context, user, widget.selectedDate,  deviceSize);
                 },
                 child: Card(
                     color: Colors.white,
@@ -118,7 +120,7 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
                      ),
                     child: Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                            const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                         child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

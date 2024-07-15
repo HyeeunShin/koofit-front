@@ -20,6 +20,7 @@ import 'package:koofit/model/data/fitness.dart';
 import 'package:koofit/model/data/user.dart';
 import 'package:koofit/model/data/diet.dart';
 import 'package:koofit/model/data/food.dart';
+
 void main() async {
   KakaoSdk.init(nativeAppKey: '03921b5c12528d3a6f58bffa6895ee10');
   await Hive.initFlutter();
@@ -54,7 +55,11 @@ class _MyAppState extends State<MyApp> {
         minTextAdapt: true,
         builder: (context, child) {
           return GetMaterialApp(
-            theme: ThemeData(primaryColor: Colors.white),
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                scaffoldBackgroundColor: Colors.white,
+                primaryColor: Colors.white,
+                fontFamily: 'NotoSans'), //default 폰트 설정
               // navigatorObservers: <NavigatorObserver>[observer],
               initialRoute: SplashScreen.routeName,
               routes: {

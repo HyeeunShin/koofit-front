@@ -81,13 +81,13 @@ class _UserPageState extends State<UserPage> {
     Get.offAll(() => SplashScreen());
   },
   style: ElevatedButton.styleFrom(
-    primary: Colors.red, // 버튼 배경색 변경
-    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15), // 버튼 내 padding 조절
+    backgroundColor: Colors.red, // 버튼 배경색 변경
+    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15), // 버튼 내 padding 조절
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10), // 버튼 모서리를 둥글게
     ),
   ),
-  child: Text(
+  child: const Text(
     '로그아웃',
     style: TextStyle(
       fontSize: 18,

@@ -22,7 +22,7 @@ class oneGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      size: Size(150, 150),
+      size: Size(130, 130),
       painter: OneGraphPainter(
         recommendedCarb: recommendedCarb,
         recommendedProtein: recommendedProtein,

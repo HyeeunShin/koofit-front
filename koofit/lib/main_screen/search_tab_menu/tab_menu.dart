@@ -19,7 +19,7 @@ class _TabMenuState extends State<TabMenu> {
     return DefaultTabController(
         length: 2, // Number of tabs
         child: Column(children: [
-          TabBar(
+          const TabBar(
             tabs: [
               Tab(text: "KMU"),
               Tab(text: '즐겨찾기'),

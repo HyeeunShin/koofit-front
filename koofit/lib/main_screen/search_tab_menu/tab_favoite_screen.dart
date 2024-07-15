@@ -52,8 +52,8 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
       child: Stack(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             decoration: BoxDecoration(
               color: Colors.white60,
               borderRadius: BorderRadius.circular(20.0),
@@ -66,9 +66,9 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${widget.food.foodName}',
+                  widget.food.foodName,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),
@@ -76,24 +76,24 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
                 Text(
                   '${(widget.food.calories)}cal',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
                   ),
                 ),
                 Row(
                   children: [
-                    Text('탄  ', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('탄  ', style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('${widget.food.carbo}g'),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text('단  ', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('단  ', style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('${widget.food.protein}g'),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text('지  ', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('지  ', style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('${widget.food.fat}g'),
                   ],
                 ),
@@ -109,15 +109,15 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
                 isFavorite
                     ? Icons.favorite
                     : Icons.favorite_outline_rounded,
-                color: Color(0xffFFB3BA),
+                color: const Color(0xffFFB3BA),
                 size: 30,
               ),
             ),
           ),
           Positioned(
-            child: AddFoodScreen(food: widget.food, selectedDate: widget.selectedDate ),
             top: 55,
             right: 30,
+            child: AddFoodScreen(food: widget.food, selectedDate: widget.selectedDate ),
           ),
         ],
       ),

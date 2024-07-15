@@ -35,7 +35,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  easy_search_bar: ^2.5.0
   item_count_number_button: ^1.0.0
   cached_network_image: ^3.2.1
   flutter_svg: ^1.1.6
@@ -51,6 +50,7 @@ dependencies:
   kakao_flutter_sdk: ^1.7.0
 
   flutter_launcher_icons: ^0.13.1
+  flutter_easy_search_bar: ^0.0.2
 
 flutter_icons:
   android: "launcher_icon"

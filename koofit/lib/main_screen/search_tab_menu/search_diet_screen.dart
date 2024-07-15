@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:koofit/main_screen/search_tab_menu/food_detail_screen.dart';
 import 'package:koofit/main_screen/search_tab_menu/tab_menu.dart';
 import 'package:koofit/model/config/palette.dart';
-import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:koofit/model/data/user.dart';
 import 'package:gsheets/gsheets.dart';
+import 'package:flutter_easy_search_bar/flutter_easy_search_bar.dart';
 
 class SearchDietScreen extends StatefulWidget {
   final User userData;

@@ -70,14 +70,14 @@ class _UnivDietCardState extends State<UnivDietCard> {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        color: Color(0xffFFFFFF),
+        color: const Color(0xffFFFFFF),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
            ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: EdgeInsets.symmetric(vertical: 7)),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 7)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -85,7 +85,7 @@ class _UnivDietCardState extends State<UnivDietCard> {
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset('assets/images/healthy_food.png'),
                 ),
-                Text(
+                const Text(
                   "오늘의 학식",
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -98,22 +98,8 @@ class _UnivDietCardState extends State<UnivDietCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ToggleButtons(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 13),
-                      child: Text('복지관'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 13),
-                      child: Text('법학관'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 13),
-                      child: Text('교직원'),
-                    ),
-                  ],
                   textStyle:
-                  TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+                  const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
                   isSelected: [
                     selectedMenu == bokjiMenu,
                     selectedMenu == beobgwanMenu,
@@ -142,15 +128,29 @@ class _UnivDietCardState extends State<UnivDietCard> {
                       _scrollToTop();
                     });
                   },
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 13),
+                      child: Text('복지관'),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 13),
+                      child: Text('법학관'),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 13),
+                      child: Text('교직원'),
+                    ),
+                  ],
                 ),
               ],
             ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
             if (selectedMenu.isNotEmpty)
               SingleChildScrollView(
                 controller: _scrollController,
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   children: selectedMenu.entries.map((entry) {
                     String menuKey = entry.key
@@ -165,7 +165,7 @@ class _UnivDietCardState extends State<UnivDietCard> {
                     // Iterate through entries in menuValue
 
                     keyValueWidgets.add(Container(
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         width: 130,
                         height: 100,
                         decoration: BoxDecoration(
@@ -174,9 +174,9 @@ class _UnivDietCardState extends State<UnivDietCard> {
                           BorderRadius.circular(10.0), // 둥근 모서리 설정
                         ),
                         child: SingleChildScrollView(
-                            child: Text('${menuText}',
+                            child: Text(menuText,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 12)))));
 
@@ -184,38 +184,38 @@ class _UnivDietCardState extends State<UnivDietCard> {
                       return Container();
                     }
                     return Card(
-                      color: Color(0xFFF1F1F1),
+                      color: const Color(0xFFF1F1F1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Column(
                             children: [
-                              SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               Text(
                                 menuKey,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
                                     color: Colors.black87),
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               ...keyValueWidgets,
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               AddDietBtnScreen(
                                 where: btnText,
                                 menu: menuText,
                                 fromScreen: 'main',
                               ),
-                              SizedBox(height: 15),
+                              const SizedBox(height: 15),
                             ],
                           )),
                     );
                   }).toList(),
                 ),
               ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
           ],
         ),
       ),

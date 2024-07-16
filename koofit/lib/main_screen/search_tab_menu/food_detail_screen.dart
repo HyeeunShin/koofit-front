@@ -13,15 +13,18 @@ class DetailsPage extends StatefulWidget {
   final User userData;
   final String selectedDate;
 
-
   // Make either rowData or foodData required, not both
-  DetailsPage({required this.rowData, required this.userData, required this.selectedDate});
+  const DetailsPage(
+      {super.key,
+      required this.rowData,
+      required this.userData,
+      required this.selectedDate});
 
   @override
-  _DetailsPageState createState() => _DetailsPageState();
+  DetailsPageState createState() => DetailsPageState();
 }
 
-class _DetailsPageState extends State<DetailsPage> {
+class DetailsPageState extends State<DetailsPage> {
   late Food food;
   late Diet diet;
   late User _userData;
@@ -46,11 +49,11 @@ class _DetailsPageState extends State<DetailsPage> {
         foodName: widget.rowData[1],
         manufacturer: widget.rowData[2],
         foodWeight: widget.rowData[14],
-        calories: double.tryParse(widget.rowData[16]) ?? null,
-        protein: double.tryParse(widget.rowData[17]) ?? null,
-        fat: double.tryParse(widget.rowData[18]) ?? null,
-        carbo: double.tryParse(widget.rowData[19]) ?? null,
-        sugar: double.tryParse(widget.rowData[20]) ?? null,
+        calories: double.tryParse(widget.rowData[16]),
+        protein: double.tryParse(widget.rowData[17]),
+        fat: double.tryParse(widget.rowData[18]),
+        carbo: double.tryParse(widget.rowData[19]),
+        sugar: double.tryParse(widget.rowData[20]),
       );
     }
   }
@@ -72,7 +75,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Palette.mainSkyBlue,
-        title: Text(
+        title: const Text(
           '영양성분',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
@@ -84,12 +87,11 @@ class _DetailsPageState extends State<DetailsPage> {
                 size: 29,
               )),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.add,
               size: 29,
             ),
             onPressed: () async {
-              print('Settings button pressed');
               saveFoodToHiveBox(food, isFavorite)
                   .then((value) => _showdialog(context, keyTime));
             },
@@ -98,24 +100,45 @@ class _DetailsPageState extends State<DetailsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: SingleChildScrollView(
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 5),
-            _buildTile('식품명', '${food.foodName}'),
+            const SizedBox(height: 5),
+            _buildTile('식품명', food.foodName),
             _buildTile('식품 중량(g)',
                 '${food.foodWeight != null ? (double.parse(widget.rowData[14].replaceAll('g', ''))) * num : '정보없음'}'),
-            _buildTile('에너지(kcal)',
-                '${food.calories != null ? (double.parse(widget.rowData[16]) * num).toStringAsFixed(2) : '정보없음'}'),
-            _buildTile('탄수화물(g)',
-                '${food.carbo != null ? (double.parse(widget.rowData[19]) * num).toStringAsFixed(2) : '정보없음'}'),
-            _buildTile('당류(g)',
-                '${food.sugar != null ? (double.parse(widget.rowData[20]) * num).toStringAsFixed(2) : '정보없음'}'),
-            _buildTile('단백질(g)',
-                '${food.protein != null ? (double.parse(widget.rowData[17]) * num).toStringAsFixed(2) : '정보없음'}'),
-            _buildTile('지방(g)',
-                '${food.fat != null ? (double.parse(widget.rowData[18]) * num).toStringAsFixed(2) : '정보없음'}'),
-            SizedBox(height: 20),
+            _buildTile(
+                '에너지(kcal)',
+                food.calories != null
+                    ? (double.parse(widget.rowData[16]) * num)
+                        .toStringAsFixed(2)
+                    : '정보없음'),
+            _buildTile(
+                '탄수화물(g)',
+                food.carbo != null
+                    ? (double.parse(widget.rowData[19]) * num)
+                        .toStringAsFixed(2)
+                    : '정보없음'),
+            _buildTile(
+                '당류(g)',
+                food.sugar != null
+                    ? (double.parse(widget.rowData[20]) * num)
+                        .toStringAsFixed(2)
+                    : '정보없음'),
+            _buildTile(
+                '단백질(g)',
+                food.protein != null
+                    ? (double.parse(widget.rowData[17]) * num)
+                        .toStringAsFixed(2)
+                    : '정보없음'),
+            _buildTile(
+                '지방(g)',
+                food.fat != null
+                    ? (double.parse(widget.rowData[18]) * num)
+                        .toStringAsFixed(2)
+                    : '정보없음'),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -139,14 +162,14 @@ class _DetailsPageState extends State<DetailsPage> {
                           print(num);
                           setState(() {});
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.remove,
                           size: 29,
                         ),
                       ),
                       Text(
                         '$num',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
@@ -158,7 +181,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           print(num);
                           setState(() {});
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.add,
                           size: 29,
                         ),
@@ -168,7 +191,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 )
               ],
             ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               DecoratedBox(
                   decoration: BoxDecoration(
@@ -180,16 +203,16 @@ class _DetailsPageState extends State<DetailsPage> {
                         20), //border raiuds of dropdown button
                   ),
                   child: Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10),
+                      padding: const EdgeInsets.only(left: 10, right: 10),
                       child: DropdownButton(
                         iconSize: 25,
                         dropdownColor: Palette.mainSkyBlue,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                         value: keyTime,
-                        items: [
+                        items: const [
                           DropdownMenuItem(value: '아침', child: Text('아침')),
                           DropdownMenuItem(value: '점심', child: Text('점심')),
                           DropdownMenuItem(value: '저녁', child: Text('저녁')),
@@ -201,8 +224,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           });
                         },
                       ))),
-              SizedBox(width: 10),
-              Text(
+              const SizedBox(width: 10),
+              const Text(
                 "에 먹었어요",
                 style: TextStyle(
                     fontSize: 20,
@@ -211,7 +234,7 @@ class _DetailsPageState extends State<DetailsPage> {
               )
             ])
           ],
-        ),
+        )),
       ),
     );
   }
@@ -220,12 +243,12 @@ class _DetailsPageState extends State<DetailsPage> {
     return showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: Text('${time}', style: TextStyle(fontWeight: FontWeight.bold)),
-        content: Text('저장되었습니다'),
+        title: Text(time, style: const TextStyle(fontWeight: FontWeight.bold)),
+        content: const Text('저장되었습니다'),
         actions: [
           ElevatedButton(
-              onPressed: () => Get.offAll(() => DietScreen()),
-              child: Text('확인')),
+              onPressed: () => Get.offAll(() => const DietScreen()),
+              child: const Text('확인')),
         ],
       ),
     );
@@ -254,7 +277,7 @@ class _DetailsPageState extends State<DetailsPage> {
       }
     }
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: Card(
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -264,11 +287,12 @@ class _DetailsPageState extends State<DetailsPage> {
             children: [
               Text(
                 '$title  : ',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Text(
                 value, // 업데이트된 값을 표시합니다.
-                style: TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 15),
                 overflow: TextOverflow.fade,
               )
             ],

@@ -110,18 +110,18 @@ class _DietScreenState extends State<DietScreen> {
     return Expanded(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Column(
             children: [
               Text(
                 formatDate(date),
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
               UnivDietCard(selectedDate: formatter.format(date).toString()),
-              Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               TodayCalorieCard(selectedDate: formatter.format(date).toString()),
-              Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
               FitnessCard(selectedDate: formatter.format(date).toString()),
             ],
           ),

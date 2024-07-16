@@ -127,8 +127,8 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
                               Column(
                                 crossAxisAlignment : CrossAxisAlignment.start,
                                 children : [
-                                  SizedBox(height : 5),
-                                Text(
+                                  const   SizedBox(height : 5),
+                                  const Text(
                                 "식단",
                                 style: TextStyle(
                                   color: Color(0xA5222B45),
@@ -136,14 +136,14 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
-                              SizedBox(
+                                  const  SizedBox(
                                 height: 5,
                               ),
                               Row(
                                 children: [
                                   Text(
                                     "${totalCalories}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color(0xFF222B45),
                                       fontSize: 18,
                                       fontWeight: FontWeight.w700,
@@ -151,7 +151,7 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
                                   ),
                                   Text(
                                     " / ${user.goalNutrient!.calories}kal",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.black26,
                                       fontSize: 18,
                                       fontWeight: FontWeight.w700,
@@ -159,14 +159,14 @@ class _TodayCalorieCardState extends State<TodayCalorieCard> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                                  const    SizedBox(
                                 height: 13,
                               ),
                               CircleText(Palette.tanSu, carboRate, isOuter),
                               CircleText(Palette.danBaek, proteinRate, isOuter),
                               CircleText(Palette.jiBang, fatRate, isOuter),
                             ],),],),),),)
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(
                 color: Palette.mainSkyBlue,
               )));

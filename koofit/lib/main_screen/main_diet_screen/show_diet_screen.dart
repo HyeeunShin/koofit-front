@@ -109,9 +109,9 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
     return Container(
         color: Colors.white,
         width: double.infinity,
-        height: deviceSize.height * 0.4,
+        // height: deviceSize.height * 0.7,
         padding:
-            const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 35),
+        const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 35),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -119,7 +119,7 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
                 "오늘의 식단을 기록해볼까요?",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Card(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -133,12 +133,12 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
                           nutrientBox(context),
                           selectedKeyTimes.isNotEmpty
                               ? Column(
-                                  children: selectedKeyTimes
-                                      .map((keyTime) => keyTimeBox(
-                                            keyTime: keyTime,
-                                            keyTimeDietList: dietList,
-                                          ))
-                                      .toList())
+                              children: selectedKeyTimes
+                                  .map((keyTime) => keyTimeBox(
+                                keyTime: keyTime,
+                                keyTimeDietList: dietList,
+                              ))
+                                  .toList())
                               : Container()
                         ])),
               )
@@ -158,9 +158,9 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
                 recommendedCarb: 50.0,
                 recommendedProtein: 30.0,
                 recommendedFat: 20.0,
-                consumedCarb: (totalCarbo).toDouble(),
-                consumedProtein: (totalProtein).toDouble(),
-                consumedFat: (totalFat).toDouble(),
+                consumedCarb: (totalCarbo / user.goalNutrient!.carbo) *100,
+                consumedProtein: (totalProtein /  user.goalNutrient!.protein) * 100,
+                consumedFat: (totalFat/user.goalNutrient!.fat) *100,
               ),
               const SizedBox(width: 20),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -192,7 +192,7 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
           CalText(totalCalories, user.goalNutrient!.calories),
           const SizedBox(height: 20),
           Text(
-            '${remainCalories} kcal 더 먹을 수 있어요',
+            '$remainCalories kcal 더 먹을 수 있어요',
             textAlign: TextAlign.left,
             style: const TextStyle(
               color: Color(0xC6222B45),
@@ -214,9 +214,9 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
               );
             },
             style: ElevatedButton.styleFrom(
-                minimumSize: Size(500, 20),
+                minimumSize: const Size(500, 20),
                 backgroundColor: Palette.mainSkyBlue,
-                padding: EdgeInsets.symmetric(vertical: 1, horizontal: 2),
+                padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 2),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15))),
             child: const Text(

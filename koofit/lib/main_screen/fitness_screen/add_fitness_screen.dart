@@ -29,8 +29,9 @@ class _AddFitnessState extends State<AddFitness> {
   bool _isCheckStretch = false;
   List<String> fitnessCheckList = [];
 
-  TextStyle selectedTextStyle = TextStyle(fontWeight: FontWeight.bold);
-  TextStyle unselectedTextStyle = TextStyle();
+  TextStyle selectedTextStyle =
+  const TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
+  TextStyle unselectedTextStyle = const TextStyle();
   FocusNode timeField = FocusNode();
 
   List<String> whatFitnessList = [];
@@ -78,17 +79,17 @@ class _AddFitnessState extends State<AddFitness> {
             },
             child: Container(
               color: Colors.white,
-              padding:
-                  EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 35),
+              padding: const EdgeInsets.only(
+                  top: 5, left: 15, right: 15, bottom: 35),
               child: Column(
                 children: <Widget>[
-                  Text(
+                  const Text(
                     "오늘의 운동을 기록해볼까요?",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 35),
+                  const SizedBox(height: 35),
                   Padding(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
                         nameSection(),
@@ -110,7 +111,7 @@ class _AddFitnessState extends State<AddFitness> {
   Widget nameSection() {
     return Container(
         padding: EdgeInsets.symmetric(
-          horizontal: 20.h,
+          horizontal: 15.h,
           vertical: 10.v,
         ),
         decoration: AppDecoration.outlineBlack.copyWith(
@@ -121,13 +122,13 @@ class _AddFitnessState extends State<AddFitness> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("운동 종류",
+              const Text("운동 종류",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
               Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                         height: 20,
                         child: Row(children: [
                           Checkbox(
@@ -141,13 +142,14 @@ class _AddFitnessState extends State<AddFitness> {
                             // Set the color when the checkbox is checked
                             activeColor: Palette.mid_dark_mainSkyBlue,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(width: 1, color: Colors.grey),
+                              side: const BorderSide(
+                                  width: 1, color: Colors.grey),
                               // Set the border thickness and color
                               borderRadius: BorderRadius.circular(
                                   5), // Adjust border radius if needed
                             ), // Set the color of the checkbox itself
                           ),
-                          Text("유산소"),
+                          const Text("유산소"),
                           Checkbox(
                             value: _isCheckWeight,
                             onChanged: (value) {
@@ -159,16 +161,17 @@ class _AddFitnessState extends State<AddFitness> {
                             // Set the color when the checkbox is checked
                             activeColor: Palette.mid_dark_mainSkyBlue,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(width: 1, color: Colors.grey),
+                              side: const BorderSide(
+                                  width: 1, color: Colors.grey),
                               // Set the border thickness and color
                               borderRadius: BorderRadius.circular(
                                   5), // Adjust border radius if needed
                             ),
                           ),
-                          Text("무산소"),
+                          const Text("무산소"),
                         ])),
-                    SizedBox(height: 8),
-                    Container(
+                    const SizedBox(height: 8),
+                    SizedBox(
                         height: 20,
                         child: Row(children: [
                           Checkbox(
@@ -182,13 +185,14 @@ class _AddFitnessState extends State<AddFitness> {
                             // Set the color when the checkbox is checked
                             activeColor: Palette.mid_dark_mainSkyBlue,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(width: 1, color: Colors.grey),
+                              side: const BorderSide(
+                                  width: 1, color: Colors.grey),
                               // Set the border thickness and color
                               borderRadius: BorderRadius.circular(
                                   5), // Adjust border radius if needed
                             ),
                           ),
-                          Text("스트레칭"),
+                          const Text("스트레칭"),
                         ]))
                   ])
             ]));
@@ -199,7 +203,7 @@ class _AddFitnessState extends State<AddFitness> {
     return Container(
         padding: EdgeInsets.symmetric(
           horizontal: 20.h,
-          vertical: 22.v,
+          vertical: 15.v,
         ),
         decoration: AppDecoration.outlineBlack.copyWith(
           color: Colors.white,
@@ -207,25 +211,14 @@ class _AddFitnessState extends State<AddFitness> {
         ),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 3.v,
-                  bottom: 4.v,
-                ),
-                child: Text("운동 시간",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-              ),
-              Spacer(),
-              Container(
-                  width: 40,
+              const Text("운동 시간",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+              const Spacer(),
+              SizedBox(
+                  width: 60,
                   height: 20,
-                  // padding: EdgeInsets.only(
-                  //   top: 3.v,
-                  //   bottom: 4.v,
-                  // ),
                   child: TextFormField(
                       controller: timeController,
                       // Add this line to use the controller
@@ -257,14 +250,10 @@ class _AddFitnessState extends State<AddFitness> {
                               fontWeight: FontWeight.bold, fontSize: 12),
                           focusedBorder: UnderlineInputBorder(
                               borderSide:
-                                  BorderSide(color: Palette.mainSkyBlue))))),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: 3.v, bottom: 4.v, right: 10.v, left: 10.v),
-                child: Text(
-                  "분",
-                  style: TextStyle(color: Colors.black87, fontSize: 17),
-                ),
+                              BorderSide(color: Palette.mainSkyBlue))))),
+              const Text(
+                "분",
+                style: TextStyle(color: Colors.black87, fontSize: 17),
               ),
             ]));
   }
@@ -273,8 +262,8 @@ class _AddFitnessState extends State<AddFitness> {
   Widget StrongSection() {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 20.h,
-        vertical: 15.v,
+        horizontal: 15.h,
+        vertical: 10.v,
       ),
       decoration: AppDecoration.outlineBlack.copyWith(
         borderRadius: BorderRadiusStyle.roundedBorder30,
@@ -283,42 +272,43 @@ class _AddFitnessState extends State<AddFitness> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("운동 강도",
+          const Text("운동 강도",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+          const SizedBox(width: 10),
           ToggleButtons(
+            isSelected: isSelected,
+            onPressed: toggleSelect,
+            borderRadius: BorderRadius.circular(20.0),
+            constraints: const BoxConstraints(
+              minHeight: 33.0,
+              maxWidth: 65.0,
+            ),
+            selectedColor: Colors.black54,
+            fillColor: Palette.mid_dark_mainSkyBlue,
+            color: Colors.black54,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 13),
+                padding: const EdgeInsets.symmetric(horizontal: 9),
                 child: Text('가볍게',
                     style: isSelected[0]
                         ? selectedTextStyle
                         : unselectedTextStyle),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 13),
+                padding: const EdgeInsets.symmetric(horizontal: 9),
                 child: Text('적당히',
                     style: isSelected[1]
                         ? selectedTextStyle
                         : unselectedTextStyle),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 13),
+                padding: const EdgeInsets.symmetric(horizontal: 9),
                 child: Text('격하게',
                     style: isSelected[2]
                         ? selectedTextStyle
                         : unselectedTextStyle),
               )
             ],
-            isSelected: isSelected,
-            onPressed: toggleSelect,
-            borderRadius: BorderRadius.circular(20.0),
-            constraints: const BoxConstraints(
-              minHeight: 30.0,
-              minWidth: 25.0,
-            ),
-            selectedColor: Colors.black54,
-            fillColor: Palette.mid_dark_mainSkyBlue,
-            color: Colors.black54,
           )
         ],
       ),
@@ -339,9 +329,8 @@ class _AddFitnessState extends State<AddFitness> {
             onPressed: () {
               _saveData();
               _showdialog(context, "운동 잘하셨습니다!");
-              },
-
-            child: Text('추가',
+            },
+            child: const Text('추가',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -383,12 +372,12 @@ class _AddFitnessState extends State<AddFitness> {
     return showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: Text('${time}', style: TextStyle(fontWeight: FontWeight.bold)),
-        content: Text('저장되었습니다'),
+        title: Text(time, style: const TextStyle(fontWeight: FontWeight.bold)),
+        content: const Text('저장되었습니다'),
         actions: [
           ElevatedButton(
-              onPressed: () => Get.offAll(() => DietScreen()),
-              child: Text('확인')),
+              onPressed: () => Get.offAll(() => const DietScreen()),
+              child: const Text('확인')),
         ],
       ),
     );

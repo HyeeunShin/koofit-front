@@ -69,29 +69,28 @@ class _FitnessModalBottomSheetState extends State<FitnessModalBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 35),
-      child: SingleChildScrollView( child: Column(
-        children: <Widget>[
-          Text(
-            "오늘의 운동을 기록해볼까요?",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 25),
-          _todayFitness.isNotEmpty
-              ? Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(children: [
-                    for (var fitness in _todayFitness) todayGraphCard(fitness)
-                  ]))
-              : Container(),
-          SizedBox(height: 25),
-          addBtn(),
-          SizedBox(height: 15),
-
-        ],
-      ))
-    ); // Your existing build method content
+        color: Colors.white,
+        padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 35),
+        child: SingleChildScrollView(
+            child: Column(
+          children: <Widget>[
+            Text(
+              "오늘의 운동을 기록해볼까요?",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 25),
+            _todayFitness.isNotEmpty
+                ? Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(children: [
+                      for (var fitness in _todayFitness) todayGraphCard(fitness)
+                    ]))
+                : Container(),
+            SizedBox(height: 25),
+            addBtn(),
+            SizedBox(height: 15),
+          ],
+        ))); // Your existing build method content
   }
 
   Widget todayGraphCard(Fitness fitness) {
@@ -124,11 +123,11 @@ class _FitnessModalBottomSheetState extends State<FitnessModalBottomSheet> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
-                      Text(
-                        " ${fitness.time} 분 ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black54),
-                      )
+                    Text(
+                      " ${fitness.time} 분 ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black54),
+                    )
                   ]),
                   Row(children: [
                     Text(
@@ -136,11 +135,11 @@ class _FitnessModalBottomSheetState extends State<FitnessModalBottomSheet> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
-                      Text(
-                        " ${fitness.strong} ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black54),
-                      )
+                    Text(
+                      " ${fitness.strong} ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black54),
+                    )
                   ]),
                 ])));
   }
@@ -160,7 +159,8 @@ class _FitnessModalBottomSheetState extends State<FitnessModalBottomSheet> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddFitness(selectedDate: widget.selectedDate),
+                  builder: (context) =>
+                      AddFitness(selectedDate: widget.selectedDate),
                 ),
               );
             },

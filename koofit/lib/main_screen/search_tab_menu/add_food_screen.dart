@@ -10,12 +10,10 @@ import 'package:get/get.dart';
 class AddFoodScreen extends StatefulWidget {
   final Food food;
   final String selectedDate;
+
   // 생성자 정의
-  AddFoodScreen({
-    Key? key,
-    required this.food,
-    required this.selectedDate
-  }) : super(key: key);
+  const AddFoodScreen({Key? key, required this.food, required this.selectedDate})
+      : super(key: key);
 
   @override
   State<AddFoodScreen> createState() => _AddFoodScreenState();
@@ -31,28 +29,27 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
   void initState() {
     super.initState();
     keyTime = '아침';
-      print(DateTime.now());
   }
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () async {
           await _showNutrientSheet(context, widget.food);
         },
-        child: Text('+',
+        style: ElevatedButton.styleFrom(
+            minimumSize: const Size(50, 20),
+            backgroundColor: Palette.mainSkyBlue,
+            padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+            // 내부 패딩 조절
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15))),
+        child: const Text('+',
             style: TextStyle(
               color: Colors.white,
               fontSize: 21,
-              fontFamily: 'Inter',
               fontWeight: FontWeight.w800,
-            )),
-        style: ElevatedButton.styleFrom(
-            minimumSize: Size(50, 20),
-            backgroundColor: Palette.mainSkyBlue,
-            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 2),
-            // 내부 패딩 조절
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15))));
+            )));
   }
 
   Future<void> _showNutrientSheet(BuildContext context, Food foodData) async {
@@ -71,7 +68,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
       ),
       builder: (BuildContext context) {
         return ClipRRect(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
             ),
@@ -83,12 +80,12 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                   SizedBox(height: 15),
                   Text(
                     "${foodData.foodName}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 22,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Card(
                     color: Color(0xFFEFEFEF),
                     shape: RoundedRectangleBorder(
@@ -96,31 +93,31 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                           BorderRadius.circular(30), // 모서리를 둥글게 만드는 값 설정
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(30.0),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           // 시작에 배치
                           children: [
                             Text(
                               "${foodData.calories}Kcal",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
                                 color: Colors.black45,
                               ),
                             ),
-                            Divider(
+                            const Divider(
                               color: Colors.black12, // 가로선의 색상 설정
                               thickness: 1, // 가로선의 두께 설정
                               height: 20, // 가로선의 높이 설정
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                              padding: const EdgeInsets.symmetric(vertical: 10),
                               child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "탄수화물",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -128,7 +125,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                                     ),
                                     Text(
                                       "${foodData.carbo}g",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 15),
                                     ),
@@ -140,7 +137,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "당류",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -149,25 +146,25 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                                     ),
                                     Text(
                                       "${foodData.sugar}g",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13,
                                           color: Colors.black45),
                                     ),
                                   ]),
                             ),
-                            Divider(
+                            const Divider(
                               color: Colors.black12, // 가로선의 색상 설정
                               thickness: 1, // 가로선의 두께 설정
                               height: 20, // 가로선의 높이 설정
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                              padding: const EdgeInsets.symmetric(vertical: 10),
                               child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "단백질",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -175,13 +172,13 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                                     ),
                                     Text(
                                       "${foodData.protein}g",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 15),
                                     ),
                                   ]),
                             ),
-                            Divider(
+                            const Divider(
                               color: Colors.black12, // 가로선의 색상 설정
                               thickness: 1, // 가로선의 두께 설정
                               height: 20, // 가로선의 높이 설정
@@ -192,7 +189,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "지방",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -213,7 +210,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                   //TODO : 영양성분 수정하는 버튼 추가
                   keyTimeSelecter(),
                   Container(
-                    // padding: EdgeInsets.symmetric(vertical: 10),
+                      // padding: EdgeInsets.symmetric(vertical: 10),
                       margin: EdgeInsets.symmetric(vertical: 20),
                       width: double.infinity,
                       height: 50,
@@ -255,7 +252,6 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
   }
 
   Future<void> saveFavoriteFoodToHiveBox(Food food) async {
-
     String date = widget.selectedDate;
     print("saveFavorite dateeeee !!!  $date");
 
@@ -324,5 +320,4 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
       ],
     );
   }
-
 }

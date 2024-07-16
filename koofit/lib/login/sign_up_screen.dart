@@ -368,7 +368,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 gender: _gender,
                                                 height: 0,
                                                 curWeight: 0,
-                                                goalNutrient: Nutrient(calories: 0, carbo:0, protein: 0, fat: 0, fitnessTime: 30),
+                                                goalNutrient: Nutrient(
+                                                    calories: 0,
+                                                    carbo: 0,
+                                                    protein: 0,
+                                                    fat: 0,
+                                                    fitnessTime: 30),
                                                 goalWeight: 0,
                                                 fitnessList: [],
                                                 todayNutrientList: [],
@@ -383,7 +388,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     },
                                     child: Text('확인',
                                         style: TextStyle(
-                                          color: Colors.white,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20.sp)),
                                   ))),

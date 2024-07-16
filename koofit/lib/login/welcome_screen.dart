@@ -10,6 +10,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class WelcomeScreen extends StatefulWidget {
   final User user;
+
   const WelcomeScreen({Key? key, required this.user}) : super(key: key);
 
   @override
@@ -22,6 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   bool isLoading = true;
   bool isSuccess = false;
   late User args;
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +46,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return isLoading
         ? loadingView()
         : WillPopScope(
@@ -92,19 +93,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     bool isKakao = true;
 
     if (isKakao) {
-
       args.uid = "uid";
       newUserUid = "uid";
 
       HiveUserHelper().createUser(args).then((value) {
-      isSuccess = true;
+        isSuccess = true;
       });
 
-      HiveUserHelper().readUser().then((value){
-      });
+      HiveUserHelper().readUser().then((value) {});
 
       print('카카오 회원가입 성공 👋');
-
     }
     // } on kakao.KakaoAuthException catch (e) {
     //   print('카카오 로그인 에러 - E: ${e.toString()}');

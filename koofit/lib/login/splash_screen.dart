@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-     _routePage();
+    _routePage();
   }
 
   Future<void> _routePage() async {

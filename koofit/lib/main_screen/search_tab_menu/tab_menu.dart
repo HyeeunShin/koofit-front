@@ -7,7 +7,9 @@ import 'package:koofit/model/data/user.dart';
 class TabMenu extends StatefulWidget {
   final User UserData;
   final String selectedDate;
-  const TabMenu({super.key, required this.UserData, required this.selectedDate});
+
+  const TabMenu(
+      {super.key, required this.UserData, required this.selectedDate});
 
   @override
   State<TabMenu> createState() => _TabMenuState();
@@ -27,7 +29,7 @@ class _TabMenuState extends State<TabMenu> {
             ],
             labelColor: Colors.black87,
             labelStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-           // dividerHeight: 0,
+            // dividerHeight: 0,
             indicatorWeight: 3,
             indicatorColor: Palette.mainSkyBlue,
             indicatorSize: TabBarIndicatorSize.tab,
@@ -39,7 +41,10 @@ class _TabMenuState extends State<TabMenu> {
                 // Content for Tab 1
                 TabKmuScreen(selectedDate: widget.selectedDate),
                 // Content for Tab 2
-                TabFavoriteScreen(UserData: widget.UserData, selectedDate: widget.selectedDate,),
+                TabFavoriteScreen(
+                  UserData: widget.UserData,
+                  selectedDate: widget.selectedDate,
+                ),
                 // Content for Tab 3
                 // Text('Tab 3 Content')
               ],

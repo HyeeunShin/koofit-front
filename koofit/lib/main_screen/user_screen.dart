@@ -67,36 +67,36 @@ class _UserPageState extends State<UserPage> {
           children: [
             kakaoInfoSection(
               profileImageUrl: _profileImageUrl,
-            //   nickname: _nickname,
-            //   emailAddress: _emailAddress,
+              //   nickname: _nickname,
+              //   emailAddress: _emailAddress,
             ),
             SizedBox(height: 20),
             InfoSection(),
             SizedBox(height: 20),
             ElevatedButton(
-  onPressed: () async {
-    //로그아웃
-    await viewmodel.logout();
-    //로그아웃 확인 후 splash로 이동 => 여기서 자동로그인 확인해야함.
-    Get.offAll(() => SplashScreen());
-  },
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.red, // 버튼 배경색 변경
-    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15), // 버튼 내 padding 조절
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10), // 버튼 모서리를 둥글게
-    ),
-  ),
-  child: const Text(
-    '로그아웃',
-    style: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      color: Colors.white, // 버튼 텍스트 색상 변경
-    ),
-  ),
-),
-
+              onPressed: () async {
+                //로그아웃
+                await viewmodel.logout();
+                //로그아웃 확인 후 splash로 이동 => 여기서 자동로그인 확인해야함.
+                Get.offAll(() => SplashScreen());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red, // 버튼 배경색 변경
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 40, vertical: 15), // 버튼 내 padding 조절
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10), // 버튼 모서리를 둥글게
+                ),
+              ),
+              child: const Text(
+                '로그아웃',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white, // 버튼 텍스트 색상 변경
+                ),
+              ),
+            ),
             SizedBox(height: 20),
           ],
         ),
@@ -107,12 +107,10 @@ class _UserPageState extends State<UserPage> {
 
 class kakaoInfoSection extends StatelessWidget {
   final String? profileImageUrl;
-  
 
   const kakaoInfoSection({
     Key? key,
     required this.profileImageUrl,
-    
   }) : super(key: key);
 
   @override
@@ -170,7 +168,8 @@ class _InfoSectionState extends State<InfoSection> {
         children: isSelected.entries
             .map((entry) => buildListTile(context, entry.key, 'Sample', () {
                   setState(() {
-                    isSelected.updateAll((key, value) => isSelected[key] = false);
+                    isSelected
+                        .updateAll((key, value) => isSelected[key] = false);
                     isSelected[entry.key] = true;
                   });
 
@@ -183,7 +182,7 @@ class _InfoSectionState extends State<InfoSection> {
                       // Get.to(() => EditStudentId());
                       break;
                     case '나이':
-                      // Get.to(() => EditAge());
+                    // Get.to(() => EditAge());
                   }
                 }))
             .toList(),
@@ -191,10 +190,13 @@ class _InfoSectionState extends State<InfoSection> {
     );
   }
 
-  Widget buildListTile(BuildContext context, String title, String subtitle, VoidCallback onTap) {
+  Widget buildListTile(
+      BuildContext context, String title, String subtitle, VoidCallback onTap) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
-      color: isSelected[title] ?? false ? Colors.grey.shade300 : Colors.transparent,
+      color: isSelected[title] ?? false
+          ? Colors.grey.shade300
+          : Colors.transparent,
       child: ListTile(
         title: Text(title),
         subtitle: Text(subtitle),
@@ -203,6 +205,3 @@ class _InfoSectionState extends State<InfoSection> {
     );
   }
 }
-
-
-

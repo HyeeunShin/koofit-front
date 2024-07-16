@@ -24,6 +24,7 @@ class _keyTimeBoxState extends State<keyTimeBox> {
 
   String keyTime = '';
   List<Row> morningRows = [];
+  Size deviceSize = const Size(350, 680);
 
   @override
   void initState() {
@@ -48,38 +49,28 @@ class _keyTimeBoxState extends State<keyTimeBox> {
     // morningDiets를 사용하여 Row 위젯을 생성합니다.
     morningRows = keyTimeDiets.map((diet) {
       return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            width: 140,
-            child: FittedBox(
-              alignment: Alignment.topLeft,
-              fit: BoxFit.scaleDown,
+              width: deviceSize.width * 0.4,
               child: Text(
-                '${diet.foodName}',
+                diet.foodName,
                 textAlign: TextAlign.start,
-                style: TextStyle(
+                maxLines: 1,
+                overflow: TextOverflow.fade,
+                style: const TextStyle(
                   fontSize: 12,
                   color: Color(0xC6222B45),
                   fontWeight: FontWeight.w500,
                 ),
-              ),
-            ),
-          ),
-          SizedBox(width: 20),
-          SizedBox(
-            width: 50,
-            child: FittedBox(
-              alignment: Alignment.topRight,
-              fit: BoxFit.scaleDown,
-              child: Text(
-                '${diet.nutrient.calories!.toInt()} kcal',
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: Color(0xc6222B45),
-                  fontSize: 10,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              )),
+          Text(
+            '${diet.nutrient.calories!.toInt()} kcal',
+            textAlign: TextAlign.right,
+            style: const TextStyle(
+              color: Color(0xc6222B45),
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -89,8 +80,9 @@ class _keyTimeBoxState extends State<keyTimeBox> {
 
   @override
   Widget build(BuildContext context) {
+    deviceSize = MediaQuery.of(context).size;
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         width: double.infinity,
         child: IntrinsicHeight(
             child: Row(
@@ -98,9 +90,7 @@ class _keyTimeBoxState extends State<keyTimeBox> {
           children: [
             Expanded(
                 child: Container(
-              width: 140,
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Palette.mainSkyBlue,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
@@ -109,26 +99,23 @@ class _keyTimeBoxState extends State<keyTimeBox> {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Image.asset('assets/images/healthy_food.png'),
-                  ),
+                  Image.asset('assets/images/healthy_food.png',
+                      width: 20, height: 20),
                   Text(
-                    "$keyTime",
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                    keyTime,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ],
               ),
             )),
             Container(
-              width: 230,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: BoxDecoration(
-                color: Color(0xEFCFCFAEE),
+              width: deviceSize.width * 0.6,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              decoration: const BoxDecoration(
+                color: Color(0xefcfcfaee),
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(15.0),
                   bottomRight: Radius.circular(15.0),
@@ -142,7 +129,7 @@ class _keyTimeBoxState extends State<keyTimeBox> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     // Align children to both ends
                     children: [
-                      Text(
+                      const Text(
                         "총 칼로리",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -151,7 +138,7 @@ class _keyTimeBoxState extends State<keyTimeBox> {
                       ),
                       Text(
                         '$totalCalories kcal',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0xC6222B45),
                           fontSize: 15,
                           fontWeight: FontWeight.w700,
@@ -159,21 +146,21 @@ class _keyTimeBoxState extends State<keyTimeBox> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ...morningRows,
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       RectangleText(
                         Palette.tanSu,
                         realGram: totalCarbo,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       RectangleText(
                         Palette.danBaek,
                         realGram: totalProtein,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       RectangleText(
                         Palette.jiBang,
                         realGram: totalFat,

@@ -8,9 +8,6 @@ import 'package:koofit/login/login_screen.dart';
 import 'package:koofit/login/sign_up_screen.dart';
 import 'package:koofit/login/body_size_sign_up_screen.dart';
 import 'package:koofit/main_screen/main_diet_screen/diet_screen.dart';
-import 'package:koofit/main_screen/search_tab_menu/search_diet_screen.dart';
-import 'package:koofit/main_screen/search_tab_menu/add_diet_screen.dart';
-import 'package:koofit/login/welcome_screen.dart';
 import 'package:koofit/main_screen/user_screen.dart';
 import 'package:koofit/model/HiveDietHelper.dart';
 import 'package:koofit/model/HiveFitnessHelper.dart';
@@ -57,9 +54,9 @@ class _MyAppState extends State<MyApp> {
           return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
-                scaffoldBackgroundColor: Colors.white,
-                primaryColor: Colors.white,
-                fontFamily: 'NotoSans'), //default 폰트 설정
+                  scaffoldBackgroundColor: Colors.white,
+                  primaryColor: Colors.white,
+                  fontFamily: 'NotoSans'), //default 폰트 설정
               // navigatorObservers: <NavigatorObserver>[observer],
               initialRoute: SplashScreen.routeName,
               routes: {

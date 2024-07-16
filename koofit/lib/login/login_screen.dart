@@ -18,8 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isLoading = false;
   bool isKakaoClicked = false;
 
-  //로그인 모델 객체 생성 
-    final viewmodel = Loginview(KakaoLogin());
+  //로그인 모델 객체 생성
+  final viewmodel = Loginview(KakaoLogin());
 
   @override
   Widget build(BuildContext context) {
@@ -67,24 +67,24 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: () async {
         User newUser = User(
-                      uid: "",
-                      name: "",
-                      gender: "",
-                      stuNumber: "",
-                      number: "",
-                      age: "",
-                      height: 0,
-                      curWeight: 0,
-                      goalWeight: 0,
-                      todayNutrientList: [],
-                      goalNutrient: Nutrient(calories: 0, carbo: 0, protein:0, fat: 0, fitnessTime: 30),
-                      fitnessList: [],
-                      recordedDayList: [],
-                      favorieFoodList: []);
-        // 카카오 로그인 
+            uid: "",
+            name: "",
+            gender: "",
+            stuNumber: "",
+            number: "",
+            age: "",
+            height: 0,
+            curWeight: 0,
+            goalWeight: 0,
+            todayNutrientList: [],
+            goalNutrient: Nutrient(
+                calories: 0, carbo: 0, protein: 0, fat: 0, fitnessTime: 30),
+            fitnessList: [],
+            recordedDayList: [],
+            favorieFoodList: []);
+        // 카카오 로그인
         await viewmodel.login();
-              Navigator.pushNamed(scaffoldContext, 'signUp',
-                      arguments: newUser);
+        Navigator.pushNamed(scaffoldContext, 'signUp', arguments: newUser);
       },
       child: Container(
         alignment: Alignment.center,
@@ -104,9 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
               )
             : GestureDetector(
                 onTap: () {
-                  
-                  // 위로 이동 
-                   
+                  // 위로 이동
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -130,4 +128,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

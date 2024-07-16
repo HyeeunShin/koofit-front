@@ -9,11 +9,10 @@ class AddDietBtnScreen extends StatefulWidget {
 
   // 생성자 정의
   const AddDietBtnScreen(
-      {Key? key,
+      {super.key,
       required this.where,
       required this.menu,
-      required this.fromScreen})
-      : super(key: key);
+      required this.fromScreen});
 
   @override
   State<AddDietBtnScreen> createState() => _AddDietBtnScreenState();
@@ -23,7 +22,6 @@ class _AddDietBtnScreenState extends State<AddDietBtnScreen> {
   // late var _defaultValue;
   @override
   Widget build(BuildContext context) {
-
     return ElevatedButton(
         onPressed: () async {
           await _showNutrientSheet(context, widget.where, widget.menu);
@@ -83,7 +81,8 @@ class _AddDietBtnScreenState extends State<AddDietBtnScreen> {
                     widget.where,
                     style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 22, fontWeight: FontWeight.bold),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 15),
                   Text(
@@ -254,8 +253,9 @@ class _AddDietBtnScreenState extends State<AddDietBtnScreen> {
                         },
                         child: const Text('수정하기',
                             style: TextStyle(
-                              color: Colors.white,
-                                fontWeight: FontWeight.bold, fontSize: 20)),
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20)),
                       ))
                 ],
               ),

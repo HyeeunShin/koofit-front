@@ -6,7 +6,7 @@ Widget loadingView() {
     onWillPop: () async {
       return false;
     },
-    child: Scaffold(
+    child: const Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [

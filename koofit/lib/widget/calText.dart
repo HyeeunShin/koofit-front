@@ -5,19 +5,20 @@ class CalText extends StatelessWidget {
   final int? realKol;
   final int? goalKol;
 
-  CalText(this.realKol, this.goalKol);
+  CalText(this.realKol, this.goalKol, {super.key});
 
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 2),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
         children: [
           Text('$realKol',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-          Text(' / $goalKol', style: TextStyle(
-              fontWeight: FontWeight.w500, color: Colors.black38)),
-          SizedBox(width: 10),
-          Text(
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+          Text(' / $goalKol',
+              style: const TextStyle(
+                  fontWeight: FontWeight.w500, color: Colors.black38)),
+          const SizedBox(width: 10),
+          const Text(
             'kcal',
             textAlign: TextAlign.center,
             style: TextStyle(

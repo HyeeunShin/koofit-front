@@ -22,7 +22,7 @@ class oneGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      size: Size(130, 130),
+      size: const Size(130, 130),
       painter: OneGraphPainter(
         recommendedCarb: recommendedCarb,
         recommendedProtein: recommendedProtein,
@@ -63,47 +63,52 @@ class OneGraphPainter extends CustomPainter {
     final Paint recommendedFatPaint = Paint()..color = Color(0xFFDCDCDC);
 
     final Paint actualCarbPaint = Paint()
-        ..color = consumedCarb > recommendedCarb ? Colors.red : Palette.tanSu;
+      ..color = consumedCarb > recommendedCarb ? Colors.red : Palette.tanSu;
     final Paint actualProteinPaint = Paint()
-        ..color = consumedProtein > recommendedProtein ? Colors.red : Palette.danBaek;
+      ..color =
+          consumedProtein > recommendedProtein ? Colors.red : Palette.danBaek;
     final Paint actualFatPaint = Paint()
-        ..color = consumedFat > recommendedFat ? Colors.red : Palette.jiBang;
+      ..color = consumedFat > recommendedFat ? Colors.red : Palette.jiBang;
 
-    double totalRecommended = recommendedCarb + recommendedProtein + recommendedFat;
+    double totalRecommended =
+        recommendedCarb + recommendedProtein + recommendedFat;
     double startAngle = pi / 2;
 
-    _drawArc(canvas, centerX, centerY, radius, startAngle, recommendedCarb / totalRecommended, recommendedCarbPaint);
+    _drawArc(canvas, centerX, centerY, radius, startAngle,
+        recommendedCarb / totalRecommended, recommendedCarbPaint);
     startAngle += 2 * pi * (recommendedCarb / totalRecommended);
-    _drawArc(canvas, centerX, centerY, radius, startAngle, recommendedProtein / totalRecommended, recommendedProteinPaint);
+    _drawArc(canvas, centerX, centerY, radius, startAngle,
+        recommendedProtein / totalRecommended, recommendedProteinPaint);
     startAngle += 2 * pi * (recommendedProtein / totalRecommended);
-    _drawArc(canvas, centerX, centerY, radius, startAngle, recommendedFat / totalRecommended, recommendedFatPaint);
+    _drawArc(canvas, centerX, centerY, radius, startAngle,
+        recommendedFat / totalRecommended, recommendedFatPaint);
 
-        // Draw actual consumption
-        startAngle = pi / 2;  // Reset start angle
-        _drawArc(canvas, centerX, centerY, radius, startAngle, consumedCarb / totalRecommended, actualCarbPaint);
-        startAngle += 2 * pi * (recommendedCarb / totalRecommended);
-        _drawArc(canvas, centerX, centerY, radius, startAngle, consumedProtein / totalRecommended, actualProteinPaint);
-        startAngle += 2 * pi * (recommendedProtein/ totalRecommended);
-        _drawArc(canvas, centerX, centerY, radius, startAngle, consumedFat / totalRecommended, actualFatPaint);
+    // Draw actual consumption
+    startAngle = pi / 2; // Reset start angle
+    _drawArc(canvas, centerX, centerY, radius, startAngle,
+        consumedCarb / totalRecommended, actualCarbPaint);
+    startAngle += 2 * pi * (recommendedCarb / totalRecommended);
+    _drawArc(canvas, centerX, centerY, radius, startAngle,
+        consumedProtein / totalRecommended, actualProteinPaint);
+    startAngle += 2 * pi * (recommendedProtein / totalRecommended);
+    _drawArc(canvas, centerX, centerY, radius, startAngle,
+        consumedFat / totalRecommended, actualFatPaint);
+  }
 
-
-      }
-
-    void _drawArc(Canvas canvas, double centerX, double centerY, double radius, double startAngle, double percentage, Paint paint) {
-        if (percentage > 0) {
-          final double sweepAngle = 2 * pi * percentage;
-          canvas.drawArc(
-            Rect.fromCircle(center: Offset(centerX, centerY), radius: radius),
-            startAngle,
-            sweepAngle,
-            true,
-            paint,
-          );
-        }
-      }
-
-
-
-      @override
-      bool shouldRepaint(CustomPainter oldDelegate) => false;
+  void _drawArc(Canvas canvas, double centerX, double centerY, double radius,
+      double startAngle, double percentage, Paint paint) {
+    if (percentage > 0) {
+      final double sweepAngle = 2 * pi * percentage;
+      canvas.drawArc(
+        Rect.fromCircle(center: Offset(centerX, centerY), radius: radius),
+        startAngle,
+        sweepAngle,
+        true,
+        paint,
+      );
     }
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}

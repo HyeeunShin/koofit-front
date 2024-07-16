@@ -285,9 +285,12 @@ class _BodySignUpScreenState extends State<BodySignUpScreen> {
 
                                             args.goalNutrient = Nutrient(
                                                 calories: caloriesValue,
-                                                carbo:(caloriesValue * 0.5 ~/ 4),
-                                                protein: (caloriesValue * 0.2 ~/ 4),
-                                                fat: (caloriesValue * 0.25 ~/ 4),
+                                                carbo:
+                                                    (caloriesValue * 0.5 ~/ 4),
+                                                protein:
+                                                    (caloriesValue * 0.2 ~/ 4),
+                                                fat:
+                                                    (caloriesValue * 0.25 ~/ 4),
                                                 fitnessTime: 30);
 
                                             print(

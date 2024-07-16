@@ -31,11 +31,9 @@ class _DietScreenState extends State<DietScreen> {
   // Use ValueNotifier for selectedDate
   DateTime _selectedDate = DateTime.now(); // Initialize with the current date
 
-
   @override
   void initState() {
     super.initState();
-
 
     initializeDateFormatting('ko', null);
 
@@ -115,7 +113,8 @@ class _DietScreenState extends State<DietScreen> {
             children: [
               Text(
                 formatDate(date),
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
               const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
               UnivDietCard(selectedDate: formatter.format(date).toString()),

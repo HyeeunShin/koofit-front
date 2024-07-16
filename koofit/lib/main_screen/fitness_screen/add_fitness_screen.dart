@@ -30,7 +30,7 @@ class _AddFitnessState extends State<AddFitness> {
   List<String> fitnessCheckList = [];
 
   TextStyle selectedTextStyle =
-  const TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
+      const TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
   TextStyle unselectedTextStyle = const TextStyle();
   FocusNode timeField = FocusNode();
 
@@ -222,7 +222,6 @@ class _AddFitnessState extends State<AddFitness> {
                   child: TextFormField(
                       controller: timeController,
                       // Add this line to use the controller
-
                       onSaved: (val) {
                         setState(() {
                           time = val.toString();
@@ -243,14 +242,15 @@ class _AddFitnessState extends State<AddFitness> {
                         setState(() {});
                       },
                       maxLength: 3,
-                      // focusNode: timeField,
+                      textAlign: TextAlign.center,
                       decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(vertical: 9),
                           counterText: '',
                           labelStyle: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12),
                           focusedBorder: UnderlineInputBorder(
                               borderSide:
-                              BorderSide(color: Palette.mainSkyBlue))))),
+                                  BorderSide(color: Palette.mainSkyBlue))))),
               const Text(
                 "분",
                 style: TextStyle(color: Colors.black87, fontSize: 17),

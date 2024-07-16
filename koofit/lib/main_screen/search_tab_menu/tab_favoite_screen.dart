@@ -4,15 +4,19 @@ import 'package:koofit/model/HiveUserHelper.dart';
 import 'package:koofit/model/config/palette.dart';
 import 'package:koofit/model/data/food.dart';
 import 'package:koofit/model/data/user.dart';
+
 class FavoriteListItem extends StatefulWidget {
   final Food food;
   final int index;
   final User userData;
   final String selectedDate;
-  const FavoriteListItem({super.key, required this.food,
-    required this.index,
-    required this.userData,
-    required this.selectedDate});
+
+  const FavoriteListItem(
+      {super.key,
+      required this.food,
+      required this.index,
+      required this.userData,
+      required this.selectedDate});
 
   @override
   State<FavoriteListItem> createState() => _FavoriteListItemState();
@@ -83,17 +87,20 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
                 ),
                 Row(
                   children: [
-                    const Text('탄  ', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('탄  ',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('${widget.food.carbo}g'),
                     const SizedBox(
                       width: 10,
                     ),
-                    const Text('단  ', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('단  ',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('${widget.food.protein}g'),
                     const SizedBox(
                       width: 10,
                     ),
-                    const Text('지  ', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const Text('지  ',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('${widget.food.fat}g'),
                   ],
                 ),
@@ -106,9 +113,7 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
             child: IconButton(
               onPressed: onHeartTap,
               icon: Icon(
-                isFavorite
-                    ? Icons.favorite
-                    : Icons.favorite_outline_rounded,
+                isFavorite ? Icons.favorite : Icons.favorite_outline_rounded,
                 color: const Color(0xffFFB3BA),
                 size: 30,
               ),
@@ -117,7 +122,8 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
           Positioned(
             top: 55,
             right: 30,
-            child: AddFoodScreen(food: widget.food, selectedDate: widget.selectedDate ),
+            child: AddFoodScreen(
+                food: widget.food, selectedDate: widget.selectedDate),
           ),
         ],
       ),
@@ -125,16 +131,12 @@ class _FavoriteListItemState extends State<FavoriteListItem> {
   }
 }
 
-
 class TabFavoriteScreen extends StatefulWidget {
   final User UserData;
   final String selectedDate;
 
-  const TabFavoriteScreen({
-    super.key,
-    required this.UserData,
-    required this.selectedDate
-  });
+  const TabFavoriteScreen(
+      {super.key, required this.UserData, required this.selectedDate});
 
   @override
   State<TabFavoriteScreen> createState() => _TabFavoriteScreenState();

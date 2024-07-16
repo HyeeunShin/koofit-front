@@ -10,12 +10,10 @@ import 'package:get/get.dart';
 class AddFoodScreen extends StatefulWidget {
   final Food food;
   final String selectedDate;
+
   // 생성자 정의
-  AddFoodScreen({
-    Key? key,
-    required this.food,
-    required this.selectedDate
-  }) : super(key: key);
+  const AddFoodScreen({Key? key, required this.food, required this.selectedDate})
+      : super(key: key);
 
   @override
   State<AddFoodScreen> createState() => _AddFoodScreenState();
@@ -32,6 +30,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
     super.initState();
     keyTime = '아침';
   }
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -211,7 +210,7 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
                   //TODO : 영양성분 수정하는 버튼 추가
                   keyTimeSelecter(),
                   Container(
-                    // padding: EdgeInsets.symmetric(vertical: 10),
+                      // padding: EdgeInsets.symmetric(vertical: 10),
                       margin: EdgeInsets.symmetric(vertical: 20),
                       width: double.infinity,
                       height: 50,
@@ -253,7 +252,6 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
   }
 
   Future<void> saveFavoriteFoodToHiveBox(Food food) async {
-
     String date = widget.selectedDate;
     print("saveFavorite dateeeee !!!  $date");
 
@@ -322,5 +320,4 @@ class _AddFoodScreenState extends State<AddFoodScreen> {
       ],
     );
   }
-
 }

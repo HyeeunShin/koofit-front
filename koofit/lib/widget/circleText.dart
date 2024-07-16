@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koofit/model/config/palette.dart';
 
-
 class CircleText extends StatelessWidget {
   final Color color;
   final int percent;
@@ -9,7 +8,8 @@ class CircleText extends StatelessWidget {
   final int? realGram;
   final int? goalGram;
 
-  CircleText(this.color, this.percent, this.isOuter, {this.realGram, this.goalGram});
+  CircleText(this.color, this.percent, this.isOuter,
+      {super.key, this.realGram, this.goalGram});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class CircleText extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 2),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
         children: [
           Container(
@@ -35,45 +35,50 @@ class CircleText extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           ),
-          Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
+          const Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
           Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xA5222B45),
               fontSize: 10,
-              fontFamily: 'Poppins',
               fontWeight: FontWeight.w700,
             ),
           ),
-          Padding(padding: EdgeInsets.symmetric(horizontal: 3)),
+          const Padding(padding: EdgeInsets.symmetric(horizontal: 3)),
           isOuter
               ? Text(
-            '$percent%',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Color(0xC6222B45),
-              fontSize: 10,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w700,
-            ),
-          )
+                  '$percent%',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Color(0xC6222B45),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w700,
+                  ),
+                )
               : Row(
-            children: [
-              Text('$realGram', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-              Text(' / $goalGram', style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black38)),
-              SizedBox(width: 10,),
-              Text(
-                '$percent%',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xC6222B45),
-                  fontSize: 10,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w700,
+                  children: [
+                    Text('$realGram',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 13)),
+                    Text(' / $goalGram',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black38)),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      '$percent%',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Color(0xC6222B45),
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    )
+                  ],
                 ),
-              )],
-          ),
         ],
       ),
     );

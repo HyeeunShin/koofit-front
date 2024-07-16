@@ -72,8 +72,8 @@ class _UnivDietCardState extends State<UnivDietCard> {
       child: Card(
         color: const Color(0xffFFFFFF),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-           ),
+          borderRadius: BorderRadius.circular(30),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -98,8 +98,8 @@ class _UnivDietCardState extends State<UnivDietCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ToggleButtons(
-                  textStyle:
-                  const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+                  textStyle: const TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 13),
                   isSelected: [
                     selectedMenu == bokjiMenu,
                     selectedMenu == beobgwanMenu,
@@ -171,7 +171,7 @@ class _UnivDietCardState extends State<UnivDietCard> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius:
-                          BorderRadius.circular(10.0), // 둥근 모서리 설정
+                              BorderRadius.circular(10.0), // 둥근 모서리 설정
                         ),
                         child: SingleChildScrollView(
                             child: Text(menuText,

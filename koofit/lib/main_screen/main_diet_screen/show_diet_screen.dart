@@ -111,7 +111,7 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
         width: double.infinity,
         // height: deviceSize.height * 0.7,
         padding:
-        const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 35),
+            const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 35),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -133,12 +133,12 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
                           nutrientBox(context),
                           selectedKeyTimes.isNotEmpty
                               ? Column(
-                              children: selectedKeyTimes
-                                  .map((keyTime) => keyTimeBox(
-                                keyTime: keyTime,
-                                keyTimeDietList: dietList,
-                              ))
-                                  .toList())
+                                  children: selectedKeyTimes
+                                      .map((keyTime) => keyTimeBox(
+                                            keyTime: keyTime,
+                                            keyTimeDietList: dietList,
+                                          ))
+                                      .toList())
                               : Container()
                         ])),
               )
@@ -158,9 +158,10 @@ class _DietModalBottomSheetState extends State<DietModalBottomSheet> {
                 recommendedCarb: 50.0,
                 recommendedProtein: 30.0,
                 recommendedFat: 20.0,
-                consumedCarb: (totalCarbo / user.goalNutrient!.carbo) *100,
-                consumedProtein: (totalProtein /  user.goalNutrient!.protein) * 100,
-                consumedFat: (totalFat/user.goalNutrient!.fat) *100,
+                consumedCarb: (totalCarbo / user.goalNutrient!.carbo) * 100,
+                consumedProtein:
+                    (totalProtein / user.goalNutrient!.protein) * 100,
+                consumedFat: (totalFat / user.goalNutrient!.fat) * 100,
               ),
               const SizedBox(width: 20),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

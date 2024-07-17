@@ -1,11 +1,12 @@
-# koofit-쿠핏
+### koofit-쿠핏 ###
 ![image](https://github.com/team-KooFit/koofit-front/assets/139297274/85e1843b-6ec7-431b-b7c7-d9279c30a101)
+
 
 # 💡 Topic
 
 - 쿠핏(KooFit)은 국민대학교 알파프로젝트 활동의 일환으로 학생들의 건강 관리를 돕기 위해 개발된 Flutter 기반의 애플리케이션입니다.
 
-- 
+ 
 ### 1.프로젝트 소개
 
 국민대학교 학생들의 건강관리를 도와주는 앱 개발을 목표로 하는 프로젝트.
